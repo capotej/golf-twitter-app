@@ -1,0 +1,11 @@
+
+div.main_content {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+div.search {
+  padding: 5px;
+}
