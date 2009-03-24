@@ -9,7 +9,8 @@ function(argv) {
   };
 
   $("form").submit(function() {
-      self.load($("[name='what']").val());
+      //self.load($("[name='what']").val());
+      $.golf.onHistoryChange("search/"+$("[name='what']").val()+"/");
       return false;
   });
 
