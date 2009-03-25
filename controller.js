@@ -10,6 +10,11 @@ jQuery.golf.controller = {
     b.append("<p>The arguments are: 1. '"+match[0]+"', 2. '"+match[1]+"'</p>");
   },
 
+  "^search/((.*)/)?$": function(b, match) {
+    var thing = match[2] || "golfers";
+    b.append(new Component.com.example.main([thing]));
+  },
+
   // the default action
   defaultAction: function(b, match) {
     var a = new Component.com.example.main(match);
