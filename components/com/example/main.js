@@ -10,7 +10,7 @@ function(argv) {
 
   $("form").submit(function() {
       //self.load($("[name='what']").val());
-      $.golf.onHistoryChange("search/"+$("[name='what']").val()+"/");
+      $.history.load("search/"+$("[name='what']").val()+"/");
       return false;
   });
 

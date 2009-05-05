@@ -1,6 +1,6 @@
 
 // this is the default action name, in case no action was specified
-jQuery.golf.defaultActionName = "search";
+jQuery.golf.defaultRoute = "search";
 
 // this defines the golf controller
 jQuery.golf.controller = {
