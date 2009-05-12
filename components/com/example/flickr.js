@@ -1,26 +1,26 @@
 function(argv) {
+  // flickr.com api url
   var api_url = "http://api.flickr.com/services/feeds/photos_public.gne";
 
   this.load = function(tag) {
-    var url = api_url;
-    url += "?tags="+tag;
-    url += "&tagmode=any";
-    url += "&format=json";
-    url += "&jsoncallback=?";
+    // build the flickr.com jsonp url parameters
+    var url = api_url+"?tags="+tag+"&tagmode=any&format=json&jsoncallback=?";
 
-    var loading = $("<img/>").attr("src", $.component.res["loading.gif"]);
-    $(".photos_go_here").empty().append(loading);
+    // show the loading spinner while jsonp is loading
+    $(".notfound").hide();
+    $(".pic").attr("src", $.component.res["loading.gif"]);
+    $(".pic").show();
 
+    // make the jsonp request and swap the resulting image in
     $.getJSON(url, function(data) {
       if (!data.items || data.items.length == 0) {
-        $(".photos_go_here").empty().append("<p>No images found.</p>");
+        // response with no data returned
+        $(".pic").hide();
+        $(".notfound").fadeIn();
       } else {
-        $.each(data.items, function(i,item){
-          if (i > 1)
-            return false;
-          var img = $("<img/>").attr("src", item.media.m);
-          $(".photos_go_here").empty().append(img);
-        });
+        // response contains results
+        $(".notfound").hide();
+        $(".pic").attr("src", data.items.pop().media.m).fadeIn();
       }
     });
   };

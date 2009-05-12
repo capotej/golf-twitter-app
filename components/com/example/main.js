@@ -1,21 +1,18 @@
+function() {
+  var flickr;
 
-function(argv) {
-  var self = this;
-  var flickr = new Component.com.example.flickr();
-
-  this.load = function(tag) {
-    $(".title").text("Look, it's "+tag+"!");
-    flickr.load(tag);
+  this.load = function(what) {
+    what = !!what ? what : "golfers";
+    $(".title").text("Look, it's "+what+"!");
+    flickr.load(what);
+    $("input[name='what']").select().focus();
   };
 
   $("form").submit(function() {
-      //self.load($("[name='what']").val());
-      $.history.load("search/"+$("[name='what']").val()+"/");
-      return false;
+    var val = $("[name='what']").val();
+    $.history.load("search/"+val+"/");
+    return false;
   });
 
-  if (argv.length == 0) argv = ["golf"];
-  $(".pix").append(flickr);
-
-  this.load(argv[0]);
+  $(".pix").append(flickr = new Component.com.example.flickr());
 }

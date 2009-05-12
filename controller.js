@@ -1,24 +1,21 @@
-
 // this is the default action name, in case no action was specified
 jQuery.golf.defaultRoute = "search";
+
+var main;
 
 // this defines the golf controller
 jQuery.golf.controller = {
 
-  "^hello/(.*)$": function(b, match) {
-    b.append("<h1>Hello, there!</h1>");
-    b.append("<p>The arguments are: 1. '"+match[0]+"', 2. '"+match[1]+"'</p>");
-  },
-
   "^search/((.*)/)?$": function(b, match) {
-    var thing = match[2] || "golfers";
-    b.append(new Component.com.example.main([thing]));
+    if (!main)
+      b.append(main = new Component.com.example.main());
+    main.load(match[2]);
+    return false;
   },
 
   // the default action
-  defaultAction: function(b, match) {
-    var a = new Component.com.example.main(match);
-    b.append(a);
+  ".*": function(b, match) {
+    jQuery.history.load("search/"+match[0]);
   }
 
 };
