@@ -10,7 +10,7 @@ function() {
 
   $("form").submit(function() {
     var val = $("[name='what']").val();
-    $.history.load("search/"+val+"/");
+    $.address.value("/search/"+val+"/");
     return false;
   });
 
