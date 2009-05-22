@@ -14,5 +14,6 @@ function() {
     return false;
   });
 
-  $(".pix").append(flickr = new Component.com.example.flickr());
+  flickr = new Component.com.example.flickr();
+  $(".pix").append(flickr);
 }

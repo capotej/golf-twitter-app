@@ -1,15 +1,16 @@
 // this is the default action name, in case no action was specified
-jQuery.golf.defaultRoute = "/search/golfers/";
+$.golf.defaultRoute = "/search/golfers/";
 
 // this defines the golf controller
-jQuery.golf.controller = {
+$.golf.controller = {
 
   "^/search/((.*)/)?$": (function() {
-    var main;
+    var main = new Component.com.example.main();
 
     return function(b, match) {
-      if (!main)
-        b.append(main = new Component.com.example.main());
+      if (!match[2])
+        $.address.value($.golf.defaultRoute);
+      b.empty().append(main)
       main.load(match[2]);
       return false;
     };
