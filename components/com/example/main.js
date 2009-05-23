@@ -8,12 +8,13 @@ function() {
     $("input[name='what']").select().focus();
   };
 
-  $("form").submit(function() {
-    var val = $("[name='what']").val();
-    $.address.value("/search/"+val+"/");
-    return false;
-  });
+  this.onAppend = function() {
+    $("form").submit(function() {
+      var val = $("[name='what']").val();
+      $.address.value("/search/"+val+"/");
+      return false;
+    });
+  };
 
-  flickr = new Component.com.example.flickr();
-  $(".pix").append(flickr);
+  $(".pix").append(flickr = new Component.com.example.flickr());
 }
