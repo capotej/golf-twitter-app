@@ -1,14 +1,10 @@
 div.main_content {
-  width: 960px;
-  margin: 0 auto;
   text-align: center;
-  font-family: sans-serif;
-}
-
-div.pix {
-  margin: 10px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid;
 }
 
 div.search {
-  padding: 5px;
+  padding: 20px;
 }
