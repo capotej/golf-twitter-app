@@ -9,7 +9,7 @@ function() {
   this.onAppend = function() {
     $("form").submit(function() {
       var val = encodeURIComponent($("[name='what']").val());
-      $.address.value("/search/"+val+"/");
+      $.golf.location("/search/"+val+"/");
       return false;
     });
   };

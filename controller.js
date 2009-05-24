@@ -6,10 +6,9 @@ $.golf.controller = {
 
   "^/search/((.*)/)?$": (function() {
     var main = new Component.com.example.main();
-
     return function(b, match) {
       if (!match[2])
-        $.address.value($.golf.defaultRoute);
+        $.golf.location($.golf.defaultRoute);
       b.empty().append(main)
       main.load(match[2]);
       return false;
@@ -18,7 +17,7 @@ $.golf.controller = {
 
   // the default action
   ".*": function(b, match) {
-    $.address.value("/search"+match[0]);
+    $.golf.location("/search"+match[0]);
   }
 
 };
