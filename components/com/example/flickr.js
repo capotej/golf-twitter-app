@@ -6,21 +6,26 @@ function(argv) {
     // build the flickr.com jsonp url parameters
     var url = api_url+"?tags="+tag+"&tagmode=any&format=json&jsoncallback=?";
 
+    $("table").removeClass("bordered");
+    $("caption, .notfound").hide();
+
     // show the loading spinner while jsonp is loading
-    $(".notfound").hide();
     $(".pic").attr("src", $.component.res["loading.gif"]);
     $(".pic").show();
 
     // make the jsonp request and swap the resulting image in
     $.getJSON(url, function(data) {
+      $(".pic").hide();
       if (!data.items || data.items.length == 0) {
         // response with no data returned
-        $(".pic").hide();
-        $(".notfound").fadeIn();
+        $(".notfound").show();
       } else {
         // response contains results
-        $(".notfound").hide();
-        $(".pic").attr("src", data.items.pop().media.m).fadeIn();
+        var pic = data.items.pop();
+        $(".title").hide();
+        $(".pic").attr("src", pic.media.m).show();
+        $("caption").text(pic.title).attr("style", "display:table-caption;");
+        $("table").addClass("bordered");
       }
     });
   };

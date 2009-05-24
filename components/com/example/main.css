@@ -1,10 +1,13 @@
 div.main_content {
   text-align: center;
   padding: 20px;
+  margin: 20px;
   background: #fff;
-  border: 1px solid;
+}
+
+div.pix {
+  margin: 20px;
 }
 
 div.search {
-  padding: 20px;
 }

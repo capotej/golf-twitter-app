@@ -1,3 +1,18 @@
-body {
-  background: lightgray;
+* {
+  padding: 0;
+  margin: 0 auto;
 }
+
+body {
+  font-family: sans-serif;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 12pt;
+}
+
+input.text {
+  border: 1px solid #999;
+  padding: 0.25em;
+  font-size: 12pt;
+}
+
