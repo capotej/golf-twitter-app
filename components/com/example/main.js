@@ -1,5 +1,4 @@
 function() {
-  var flickr;
 
   this.load = function(what) {
     flickr.load(what);
@@ -14,5 +13,7 @@ function() {
     });
   };
 
-  $(".pix").append(flickr = new Component.com.example.flickr());
+  var flickr = new Component.com.example.flickr();
+
+  $(".pix").append(flickr);
 }

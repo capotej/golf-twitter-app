@@ -2,22 +2,26 @@
 $.golf.defaultRoute = "/search/golfers/";
 
 // this defines the golf controller
-$.golf.controller = {
+$.golf.controller = [
 
-  "^/search/((.*)/)?$": (function() {
-    var main = new Component.com.example.main();
-    return function(b, match) {
-      if (!match[2])
-        $.golf.location($.golf.defaultRoute);
-      b.empty().append(main)
-      main.load(match[2]);
-      return false;
-    };
-  })(),
+  // action for the /search/something/ routes
+  { route:  "^/search/(([^/]+)/)+$",
+    action: (function() {
+      var main = new Component.com.example.main();
+
+      return function(b, match) {
+        b.empty().append(main)
+        main.load(match[2]);
+        return false;
+      };
+    })()
+  },
 
   // the default action
-  ".*": function(b, match) {
-    $.golf.location("/search"+match[0]);
+  { route:  ".*",
+    action: function(b, match) {
+      $.golf.location($.golf.defaultRoute);
+    }
   }
 
-};
+];
