@@ -1,0 +1,27 @@
+<div>
+
+  <style type="text/golf">
+    * { font-family: sans-serif; }
+    h2.title { color: red; }
+  </style>
+
+  <script type="text/golf">
+    function() {
+      $(".title").text("yo yo yo");
+      $(".body").append("<p>be seeing you...</p>");
+      $(".body").append(
+        new Component.Test2()
+      ).append(
+        new Component.Test2()
+      ).click(function() {
+        $(this).append(new Component.Test2());
+      });
+    }
+  </script>
+
+  <div class="container">
+    <h2 class="title"></h2>
+    <div class="body"></div>
+  </div>
+
+</div>
