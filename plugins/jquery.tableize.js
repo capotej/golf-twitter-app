@@ -26,7 +26,7 @@
   
   $.fn.twidth = function(h) {
     return this.each(function(k,v) {
-      $(v).find("colgroup").append($(h).map(function(kk,vv) {
+      $(v).find("colgroup").empty().append($(h).map(function(kk,vv) {
         return $("<col/>").attr("width", vv)[0];
       }))
     });
