@@ -1,0 +1,9 @@
+*.swp
+*.swo
+*.war
+*~
+.DS_Store
+hs_err_pid*
+components.js
+new.html
+new.fc.html
