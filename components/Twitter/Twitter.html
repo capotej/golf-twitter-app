@@ -1,0 +1,43 @@
+<div>
+
+
+  <script type="text/golf">
+    
+    function() {
+
+	$.require("jquery.tweet");
+
+   	
+	$("form").submit(function(){
+	    var name = $('#username_fld').val();
+	    display_tweets(".twitter_component", name);
+	    return false;
+	});
+	
+
+	var display_tweets = function(id, search){
+	    id = typeof(id) != 'undefined' ? id : '.twitter_component';
+	    search = typeof(search) != 'undefined' ? search : 'golf';
+	    $(id).empty().tweet({
+		username: search,
+		count: 30
+	    });
+	};
+
+	display_tweets();
+
+	
+    };
+    
+  </script>
+
+  <form id="search_form">
+    <p>username</p>
+    <input id="username_fld" type="text" name="username" />
+    <input type="submit" value="submit">
+  </form>
+
+  <div class="twitter_component">
+  </div>
+
+</div>
