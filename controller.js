@@ -5,9 +5,9 @@ $.golf.controller = [
   { route: ".*",
     action: (function() {
       var twit;
-      return function(b,match) {
+      return function(container, params) {
         if (!twit) twit = new Component.Twitter();
-        b.empty().append(twit);
+        container.empty().append(twit);
       }
     })()
   }
