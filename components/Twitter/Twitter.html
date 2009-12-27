@@ -7,24 +7,24 @@
 
 	$.require("jquery.tweet");
 
-   	
-	$("form").submit(function(){
+	$("#search_form").submit(function(){
+	    
 	    var name = $('#username_fld').val();
-	    display_tweets(".twitter_component", name);
-	    return false;
+	    $('.twitter_component').tweet({
+		username: name,
+		count: 30
+	    });
+	    
 	});
 	
 
-	var display_tweets = function(id, search){
-	    id = typeof(id) != 'undefined' ? id : '.twitter_component';
-	    search = typeof(search) != 'undefined' ? search : 'golf';
-	    $(id).empty().tweet({
-		username: search,
-		count: 30
-	    });
-	};
 
-	display_tweets();
+	$('.twitter_component').tweet({
+	    username: 'golf',
+	    count: 30
+	});
+	
+   	
 
 	
     };
