@@ -3,9 +3,13 @@
 $.golf.controller = [
 
   { route: ".*",
-    action: function(b,match) {
-      b.empty().append(new Component.Twitter());
-    }
+    action: (function() {
+      var twit;
+      return function(b,match) {
+        if (!twit) twit = new Component.Twitter();
+        b.empty().append(twit);
+      }
+    })()
   }
 
 ];
